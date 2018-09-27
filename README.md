@@ -6,8 +6,14 @@ This is a slack bot for ISLab group.
 
 Crate slack bot in the slack team and get the bot user access token.
 
-Run with access token.
+Set the access token as a environment variable.
 
 ```
-go run main.go --token=xoxb-...
+export SLACK_BOT_TOKEN=xoxb-...
+```
+
+Run by go run command.
+
+```
+go run main.go
 ```

@@ -6,14 +6,10 @@ import (
 	"os"
 
 	"github.com/nlopes/slack"
-	"flag"
 )
 
 func main() {
-    token := flag.String("token", "default", "Bot User OAuth Access Token which starts with \"xoxb-\".")
-    flag.Parse()
-
-	api := slack.New(*token)
+	api := slack.New(os.Getenv("SLACK_BOT_TOKEN"))
 	logger := log.New(os.Stdout, "slack-bot: ", log.Lshortfile|log.LstdFlags)
 	slack.SetLogger(logger)
 	api.SetDebug(false)
