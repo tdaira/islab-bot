@@ -34,8 +34,9 @@ func main() {
 		case *slack.MessageEvent:
 			fmt.Printf("Message: %v\n", ev)
 			fmt.Println(ev.User, ev.BotID)
+			// Response only user message.
 			if ev.User != "" {
-				api.PostMessage(ev.Channel, "This is a sample message.", slack.NewPostMessageParameters())
+				api.PostMessage(ev.Channel, "Your message : " + ev.Text, slack.NewPostMessageParameters())
 			}
 
 		case *slack.PresenceChangeEvent:
