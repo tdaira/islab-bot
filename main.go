@@ -36,7 +36,11 @@ func main() {
 			fmt.Println(ev.User, ev.BotID)
 			// Response only user message.
 			if ev.User != "" {
-				api.PostMessage(ev.Channel, "Your message : " + ev.Text, slack.NewPostMessageParameters())
+				if (ev.Text == "hoge") {
+					api.PostMessage(ev.Channel, "Please input message.", slack.NewPostMessageParameters())
+				} else {
+					api.PostMessage(ev.Channel, "Your message : " + ev.Text, slack.NewPostMessageParameters())
+				}
 			}
 
 		case *slack.PresenceChangeEvent:
